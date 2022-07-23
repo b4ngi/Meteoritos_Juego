@@ -55,6 +55,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if (event.is_action_released("mover_adelante") or event.is_action_released("mover_atras")):
 		motor_sfx.sonido_off()
 
+func destruir() -> void:
+	controlador_estados(ESTADO.MUERTO)
+
 # Metodos custom
 func controlador_estados(nuevo_estado: int) -> void:
 	match nuevo_estado:
@@ -69,6 +72,7 @@ func controlador_estados(nuevo_estado: int) -> void:
 		ESTADO.MUERTO:
 			colisionador.set_deferred("disabled", true)
 			canion.set_puede_disparar(true)
+			Eventos.emit_signal("nave_destruida", global_position, 3)
 			queue_free()
 		_:
 			printerr("Error de estado")
