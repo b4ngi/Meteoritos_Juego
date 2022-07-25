@@ -10,5 +10,8 @@ height = 31.3285
 collision_layer = 8
 collision_mask = 6
 
+[node name="Sprite" parent="." index="0"]
+modulate = Color( 0.24, 0.710938, 2, 1 )
+
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 1 )
