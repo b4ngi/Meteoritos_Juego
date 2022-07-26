@@ -139,6 +139,7 @@ visible = false
 shape = SubResource( 1 )
 
 [node name="SpriteCompleto" type="Sprite" parent="."]
+visible = false
 rotation = 1.5708
 texture = ExtResource( 3 )
 
