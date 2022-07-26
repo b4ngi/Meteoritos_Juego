@@ -17,4 +17,4 @@ position = Vector2( 226, 149 )
 environment = ExtResource( 3 )
 
 [node name="EnemigoDummy" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1004.66, 323.339 )
+position = Vector2( 235.328, 614.667 )
