@@ -10,6 +10,7 @@ export var hitpoints_base: float = 10.0
 ## Atributos
 var hitpoints: float
 var esta_en_sector: bool = true setget set_esta_en_sector
+var esta_destruido: bool = false
 var pos_spawn_original: Vector2
 var vel_spawn_original: Vector2
 
@@ -56,7 +57,8 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 # Metodos custom
 func recibir_danio(danio: float) -> void:
 	hitpoints -= danio
-	if hitpoints <= 0:
+	if hitpoints <= 0 and not esta_destruido:
+		esta_destruido = true
 		destruir()
 	impacto_sfx.play()
 	animacion_impacto.play("impacto")
