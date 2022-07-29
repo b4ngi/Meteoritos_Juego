@@ -20,9 +20,6 @@ meteorito = ExtResource( 7 )
 explosion_meteorito = ExtResource( 8 )
 sector_meteoritos = ExtResource( 9 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 226, 149 )
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 3 )
 
@@ -166,5 +163,7 @@ texture = ExtResource( 12 )
 [node name="Sprite28" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2( 3072, 1536 )
 texture = ExtResource( 12 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
 
 [connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]
