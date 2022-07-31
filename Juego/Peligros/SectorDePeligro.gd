@@ -2,7 +2,7 @@
 class_name SectorDePeligro
 extends Area2D
 
-export(String, "vacio", "Meteorite", "Enemy") var tipo_peligro
+export(String, "vacio", "Meteorito", "Enemigo") var tipo_peligro
 export var numero_peligros: int = 10
 
 # Seniales
