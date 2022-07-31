@@ -7,6 +7,7 @@ enum ESTADO {SPAWN, VIVO, INVENCIBLE, MUERTO}
 
 # Atributos Export
 export var hitpoints: float = 15.0
+export var cant_explosiones: int = 1
 
 # Atributos
 var estado_actual: int = ESTADO.SPAWN
@@ -38,13 +39,14 @@ func controlador_estados(nuevo_estado: int) -> void:
 		ESTADO.MUERTO:
 			colisionador.set_deferred("disabled", true)
 			canion.set_puede_disparar(false)
-			Eventos.emit_signal("nave_destruida", self, global_position, 3)
+			Eventos.emit_signal("nave_destruida", self, global_position, cant_explosiones)
 			queue_free()
 		_:
 			printerr("Error de estado")
 	estado_actual = nuevo_estado
 
 func recibir_danio(danio: float) -> void:
+	
 	hitpoints -= danio
 	if hitpoints <= 0.0:
 		destruir()
