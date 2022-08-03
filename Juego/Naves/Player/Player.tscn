@@ -12,7 +12,7 @@
 [ext_resource path="res://Juego/Naves/Player/Player.gd" type="Script" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 42.8723
+radius = 41.9938
 
 [node name="Player" instance=ExtResource( 6 )]
 z_index = 50
@@ -32,27 +32,27 @@ cant_explosiones = 3
 rotation = 1.5708
 texture = ExtResource( 1 )
 
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource( 1 )
+
 [node name="PuntoIzquierdo" parent="Canion" index="0"]
 position = Vector2( 0, -30 )
 
 [node name="PuntoDerecho" parent="Canion" index="1"]
 position = Vector2( 0, 30 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
-shape = SubResource( 1 )
+[node name="Escudo" parent="." index="3" instance=ExtResource( 9 )]
 
-[node name="Escudo" parent="." index="4" instance=ExtResource( 9 )]
-
-[node name="EstelaPuntoInicio" parent="." index="5" instance=ExtResource( 2 )]
+[node name="EstelaPuntoInicio" parent="." index="4" instance=ExtResource( 2 )]
 position = Vector2( -12, 0 )
 
-[node name="MotorSFX" parent="." index="6" instance=ExtResource( 7 )]
+[node name="MotorSFX" parent="." index="5" instance=ExtResource( 7 )]
 
-[node name="AnimationPlayer" parent="." index="7" instance=ExtResource( 3 )]
+[node name="AnimationPlayer" parent="." index="6" instance=ExtResource( 3 )]
 
-[node name="CamaraPlayer" parent="." index="8" instance=ExtResource( 4 )]
+[node name="CamaraPlayer" parent="." index="7" instance=ExtResource( 4 )]
 
-[node name="LaserBeam2D" parent="." index="9" instance=ExtResource( 5 )]
+[node name="LaserBeam2D" parent="." index="8" instance=ExtResource( 5 )]
 position = Vector2( 38, 0 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

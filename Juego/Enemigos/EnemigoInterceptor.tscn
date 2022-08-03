@@ -11,7 +11,7 @@ friction = 0.0
 bounce = 0.5
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 59.2924, 61.9841 )
+extents = Vector2( 58.5, 63 )
 
 [sub_resource type="Animation" id=3]
 length = 0.5
@@ -97,7 +97,10 @@ rotation = -1.5708
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 3 )
 
-[node name="Canion" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource( 2 )
+
+[node name="Canion" parent="." index="2"]
 proyectil = ExtResource( 5 )
 cadencia_disparo = 1.5
 velocidad_proyectil = 1200
@@ -108,27 +111,26 @@ position = Vector2( 20, -23 )
 [node name="PuntoDerecho" parent="Canion" index="1"]
 position = Vector2( 20, 23 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
-shape = SubResource( 2 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 autoplay = "spawn"
 anims/spawn = SubResource( 3 )
 
-[node name="SpriteSpawn" type="Sprite" parent="." index="5"]
+[node name="SpriteSpawn" type="Sprite" parent="." index="4"]
 visible = false
 modulate = Color( 1, 1, 1, 0.627451 )
 scale = Vector2( 1e-05, 1e-05 )
 texture = ExtResource( 4 )
 
-[node name="AreaDisparo" type="Area2D" parent="." index="6"]
+[node name="AreaDisparo" type="Area2D" parent="." index="5"]
+visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDisparo" index="0"]
 modulate = Color( 0.878431, 0.454902, 0.203922, 1 )
 shape = SubResource( 4 )
 
-[node name="AreaDeteccion" type="Area2D" parent="." index="7"]
+[node name="AreaDeteccion" type="Area2D" parent="." index="6"]
+visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeteccion" index="0"]

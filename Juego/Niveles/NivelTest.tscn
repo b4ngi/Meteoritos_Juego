@@ -41,6 +41,14 @@ numero_peligros = 2
 [node name="EstacionRecarga" parent="ContenedorEstaciones" instance=ExtResource( 11 )]
 position = Vector2( 1629.97, 259.27 )
 
+[node name="ContenedorBasesEnemigas" type="Node" parent="."]
+
+[node name="BaseEnemiga" parent="ContenedorBasesEnemigas" instance=ExtResource( 13 )]
+position = Vector2( -2784.53, -282.025 )
+
+[node name="BaseEnemiga2" parent="ContenedorBasesEnemigas" instance=ExtResource( 13 )]
+position = Vector2( -2816.04, 894.284 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 125.475, 130.814 )
 
@@ -172,8 +180,5 @@ texture = ExtResource( 12 )
 [node name="Sprite28" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2( 3072, 1536 )
 texture = ExtResource( 12 )
-
-[node name="BaseEnemiga" parent="." instance=ExtResource( 13 )]
-position = Vector2( 812, -104 )
 
 [connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]

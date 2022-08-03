@@ -1,25 +1,25 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Juego/Estaciones/AreaAtraccion.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Juego/Estaciones/BaseEnemiga/SpriteBaseEnemiga1.png" type="Texture" id=2]
 [ext_resource path="res://Juego/Estaciones/BaseEnemiga/SpriteBaseEnemiga2.png" type="Texture" id=3]
 [ext_resource path="res://Juego/Estaciones/BaseEnemiga/BaseEnemiga.gd" type="Script" id=4]
 [ext_resource path="res://Juego/Enemigos/AreaColision.gd" type="Script" id=5]
+[ext_resource path="res://Juego/Enemigos/EnemigoOrbital.tscn" type="PackedScene" id=6]
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 22.3797
 height = 286.25
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 12.3214
 height = 63.721
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 37.0043
 height = 183.305
 
-[sub_resource type="Animation" id=3]
-resource_name = "default"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprites:rotation_degrees")
 tracks/0/interp = 1
@@ -45,8 +45,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "rotacion_atihorario"
+[sub_resource type="Animation" id=5]
 length = 5.0
 loop = true
 tracks/0/type = "value"
@@ -74,8 +73,7 @@ tracks/1/keys = {
 "values": [ 0.0, -360.0 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "rotacion_horario"
+[sub_resource type="Animation" id=6]
 length = 5.0
 loop = true
 tracks/0/type = "value"
@@ -105,9 +103,9 @@ tracks/1/keys = {
 
 [node name="BaseEnemiga" type="Node2D"]
 script = ExtResource( 4 )
+orbital = ExtResource( 6 )
 
 [node name="Sprites" type="Node2D" parent="."]
-rotation = 2.52736
 
 [node name="Sprite2" type="Sprite" parent="Sprites"]
 position = Vector2( -136.19, -78.4877 )
@@ -120,26 +118,25 @@ scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 2 )
 
 [node name="AreaColision" type="Area2D" parent="."]
-rotation = 2.52736
 collision_layer = 32
 collision_mask = 9
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaColision"]
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="AreaColision"]
 position = Vector2( 68.5894, -78.4888 )
 rotation = 1.5708
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="AreaColision"]
 position = Vector2( -154.023, -77.6637 )
 rotation = 1.5708
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 
 [node name="AreaAtraccion" parent="." instance=ExtResource( 1 )]
-visible = false
+collision_mask = 3
 
 [node name="SpriteZonaRecarga" parent="AreaAtraccion" index="0"]
 modulate = Color( 0.223529, 0.960784, 0.603922, 0 )
@@ -148,14 +145,29 @@ modulate = Color( 0.223529, 0.960784, 0.603922, 0 )
 visible = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/default = SubResource( 3 )
-anims/rotacion_atihorario = SubResource( 1 )
-anims/rotacion_horario = SubResource( 2 )
+anims/default = SubResource( 4 )
+anims/rotacion_atihorario = SubResource( 5 )
+anims/rotacion_horario = SubResource( 6 )
 
 [node name="ImpactoSFX" type="AudioStreamPlayer2D" parent="."]
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 
+[node name="PosicionesSpawn" type="Node2D" parent="."]
+
+[node name="Norte" type="Position2D" parent="PosicionesSpawn"]
+position = Vector2( 0, -325 )
+
+[node name="Sur" type="Position2D" parent="PosicionesSpawn"]
+position = Vector2( 0, 325 )
+
+[node name="Oeste" type="Position2D" parent="PosicionesSpawn"]
+position = Vector2( -400, 0 )
+
+[node name="Este" type="Position2D" parent="PosicionesSpawn"]
+position = Vector2( 325, 0 )
+
 [connection signal="body_entered" from="AreaColision" to="." method="_on_AreaColision_body_entered"]
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
 
 [editable path="AreaAtraccion"]
