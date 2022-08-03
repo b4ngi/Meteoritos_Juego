@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SpriteZonaRecarga.png-bd888b0a6f06b23f7afa54096dd9f352.stex"
+path="res://.import/SpriteBaseEnemiga1.png-099859a6d95969481fc4f910e73ec91e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Juego/EstacionRecarga/SpriteZonaRecarga.png"
-dest_files=[ "res://.import/SpriteZonaRecarga.png-bd888b0a6f06b23f7afa54096dd9f352.stex" ]
+source_file="res://Juego/Estaciones/BaseEnemiga/SpriteBaseEnemiga1.png"
+dest_files=[ "res://.import/SpriteBaseEnemiga1.png-099859a6d95969481fc4f910e73ec91e.stex" ]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Juego/Naves/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Juego/Niveles/Nivel.gd" type="Script" id=2]
@@ -10,8 +10,9 @@
 [ext_resource path="res://Juego/Explosiones/ExplosionMeteorito.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Juego/Meteoritos/SectorMeteoritos.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Juego/Niveles/CamaraJuego.gd" type="Script" id=10]
-[ext_resource path="res://Juego/EstacionRecarga/EstacionRecarga.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Juego/Estaciones/EstacionRecarga/EstacionRecarga.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Juego/Niveles/fondo_nivel.png" type="Texture" id=12]
+[ext_resource path="res://Juego/Estaciones/BaseEnemiga/BaseEnemiga.tscn" type="PackedScene" id=13]
 
 [node name="NivelTest" type="Node2D"]
 script = ExtResource( 2 )
@@ -171,5 +172,8 @@ texture = ExtResource( 12 )
 [node name="Sprite28" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2( 3072, 1536 )
 texture = ExtResource( 12 )
+
+[node name="BaseEnemiga" parent="." instance=ExtResource( 13 )]
+position = Vector2( 812, -104 )
 
 [connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]
