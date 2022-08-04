@@ -121,17 +121,11 @@ func _on_nave_destruida(nave: Player, posicion: Vector2, num_explosiones: int) -
 	if nave is Player:
 		transicion_camaras(
 			posicion,
-			posicion + crear_posicion_aleatoria(-200.0, 200.0),
+			posicion + crear_posicion_aleatoria(200.0, 200.0),
 			camara_nivel,
 			tiempo_transicion_camara
 		)
-	crear_explosion(posicion, num_explosiones, 0.6, Vector2(100.0, 50.0))
-	
-	for i in range(num_explosiones):
-		var new_explosion: Node2D = explosion.instance()
-		new_explosion.global_position = posicion + crear_posicion_aleatoria(100.0, 50.0)
-		add_child(new_explosion)
-		yield(get_tree().create_timer(0.6), "timeout")
+	crear_explosion(posicion, 1.0, 0.6, Vector2(100.0, 50.0))
 
 func _on_spawn_meteoritos(pos_spawn: Vector2, dir_meteorito: Vector2, tamanio: float) -> void:
 	var new_meteorito: Meteorito = meteorito.instance()
