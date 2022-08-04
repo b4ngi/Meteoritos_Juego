@@ -15,5 +15,5 @@ extends Node2D
 
 ## Si se agregan mas animaciones para las explosiones de los meteoritos
 
-func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
+func _on_AnimationPlayer_animation_finished(_anim_name: String) -> void:
 	queue_free()

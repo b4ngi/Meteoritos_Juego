@@ -8,7 +8,8 @@ export var meteorito: PackedScene = null
 export var explosion_meteorito: PackedScene = null
 export var sector_meteoritos: PackedScene = null
 export var enemigo_interceptor: PackedScene = null
-export var tiempo_transicion_camara: float = 1.0
+export var rele_masa: PackedScene = null
+export var tiempo_transicion_camara: float = 2.0
 
 ## Atributos onready
 onready var contenedor_proyectiles: Node
@@ -20,11 +21,13 @@ onready var camara_nivel: Camera2D = $CamaraNivel
 # Atributos
 var meteoritos_totales: int = 0
 var player: Player = null
+var numero_bases_enemigas = 0
 
 ## Metodos
 func _ready() -> void:
 	conectar_seniales()
 	crear_contenedores()
+	numero_bases_enemigas = contabilizar_bases_enemigas()
 	player = DatosJuego.get_player_actual()
 
 ## Metodos custom
@@ -112,12 +115,20 @@ func crear_posicion_aleatoria(rango_horizontal: float, rango_vertical: float) ->
 	
 	return Vector2(rand_x, rand_y)
 
+func contabilizar_bases_enemigas() -> int:
+	return $ContenedorBasesEnemigas.get_child_count()
+
+func crear_rele() -> void:
+	var new_rele_masa: ReleDeMasa = rele_masa.instance()
+	new_rele_masa.global_position = player.global_position + crear_posicion_aleatoria(1000.0, 800.0)
+	add_child(new_rele_masa)
+
 # Conexion seniales externas
 
 func _on_disparo(proyectil: Proyectil) -> void:
 	contenedor_proyectiles.add_child(proyectil)
 
-func _on_nave_destruida(nave: Player, posicion: Vector2, num_explosiones: int) -> void:
+func _on_nave_destruida(nave: Player, posicion: Vector2, _num_explosiones: int) -> void:
 	if nave is Player:
 		transicion_camaras(
 			posicion,
@@ -125,7 +136,7 @@ func _on_nave_destruida(nave: Player, posicion: Vector2, num_explosiones: int) -
 			camara_nivel,
 			tiempo_transicion_camara
 		)
-	crear_explosion(posicion, 1.0, 0.6, Vector2(100.0, 50.0))
+	crear_explosion(posicion, 1, 0.6, Vector2(100.0, 50.0))
 
 func _on_spawn_meteoritos(pos_spawn: Vector2, dir_meteorito: Vector2, tamanio: float) -> void:
 	var new_meteorito: Meteorito = meteorito.instance()
@@ -149,14 +160,18 @@ func _on_nave_en_sector_peligro(centro_cam: Vector2, tipo_peligro: String, num_p
 	elif tipo_peligro == "Enemigo":
 		crear_sector_enemigos(num_peligros)
 
-func _on_TweenCamara_tween_completed(object: Object, key: NodePath) -> void:
+func _on_TweenCamara_tween_completed(object: Object, _key: NodePath) -> void:
 	if object.name == "CamaraPlayer":
 		object.global_position = $Player.global_position
 
-func _on_base_destruida(pos_partes: Array) -> void:
+func _on_base_destruida(_base, pos_partes: Array) -> void:
 	for posicion in pos_partes:
-		crear_explosion(posicion)
+		crear_explosion(posicion, 2)
 		yield(get_tree().create_timer(0.5), "timeout")
+	
+	numero_bases_enemigas -= 1
+	if numero_bases_enemigas == 0:
+		crear_rele()
 
 func _on_spawn_orbital(enemigo: EnemigoOrbital) -> void:
 	contenedor_enemigos.add_child(enemigo)
