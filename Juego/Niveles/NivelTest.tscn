@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Juego/Naves/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Juego/Niveles/Nivel.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Juego/Niveles/fondo_nivel.png" type="Texture" id=12]
 [ext_resource path="res://Juego/Estaciones/BaseEnemiga/BaseEnemiga.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Juego/Estaciones/ReleDeMasa/ReleDeMasa.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Juego/UI/HUD/HUD.tscn" type="PackedScene" id=15]
 
 [node name="NivelTest" type="Node2D"]
 script = ExtResource( 2 )
@@ -23,6 +24,9 @@ explosion_meteorito = ExtResource( 8 )
 sector_meteoritos = ExtResource( 9 )
 enemigo_interceptor = ExtResource( 4 )
 rele_masa = ExtResource( 14 )
+tiempo_limite = 320
+
+[node name="HUD" parent="." instance=ExtResource( 15 )]
 
 [node name="TriggersLluviaMeteoritos" type="Node" parent="."]
 
@@ -180,4 +184,11 @@ texture = ExtResource( 12 )
 position = Vector2( 3072, 1536 )
 texture = ExtResource( 12 )
 
+[node name="RestartTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="ActualizadorTimer" type="Timer" parent="."]
+
 [connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]
+[connection signal="timeout" from="RestartTimer" to="." method="_on_RestartTimer_timeout"]
+[connection signal="timeout" from="ActualizadorTimer" to="." method="_on_ActualizadorTimer_timeout"]
