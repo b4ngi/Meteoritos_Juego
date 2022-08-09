@@ -2,6 +2,9 @@
 class_name ReleDeMasa
 extends Node2D
 
+## Metodos
+func _ready() -> void:
+	Eventos.emit_signal("minimapa_objeto_creado")
 
 # Metodos custom
 func atraer_player(body: Node) -> void:

@@ -104,7 +104,9 @@ tracks/1/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
-[node name="BaseEnemiga" type="Node2D"]
+[node name="BaseEnemiga" type="Node2D" groups=[
+"minimapa",
+]]
 script = ExtResource( 4 )
 orbital = ExtResource( 6 )
 rutas = [ ExtResource( 7 ), ExtResource( 8 ) ]
