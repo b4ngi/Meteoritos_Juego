@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Juego/Estaciones/AreaAtraccion.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Juego/Estaciones/EstacionRecarga/SpriteEstacion.png" type="Texture" id=2]
 [ext_resource path="res://Juego/Estaciones/EstacionRecarga/audio_sin_energia.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Juego/Estaciones/EstacionRecarga/audio_recarga.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Juego/Estaciones/EstacionRecarga/EstacionRecarga.gd" type="Script" id=5]
+[ext_resource path="res://Juego/Estaciones/EstacionRecarga/fuente_barra_energia.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 71.2474
@@ -51,6 +52,18 @@ tracks/2/keys = {
 "values": [ Vector2( 33.1086, 33.1086 ), Vector2( 25.109, 25.109 ), Vector2( 33.1086, 33.1086 ), Vector2( 25.109, 25.109 ), Vector2( 33.1086, 33.1086 ) ]
 }
 
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.411765, 0.313726, 0.941176, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.572549, 0.65098, 0.721569, 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
 [node name="EstacionRecarga" type="Node2D" groups=[
 "minimapa",
 ]]
@@ -79,6 +92,19 @@ stream = ExtResource( 3 )
 [node name="CargaSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -15.0
+
+[node name="BarraEnergia" type="ProgressBar" parent="."]
+margin_left = -85.0
+margin_top = -200.0
+margin_right = 85.0
+margin_bottom = -175.0
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+value = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="body_entered" from="AreaColision" to="." method="_on_AreaColision_body_entered"]
 [connection signal="body_entered" from="AreaRecarga" to="." method="_on_AreaRecarga_body_entered"]

@@ -20,8 +20,7 @@ onready var barra_salud: BarraSalud = $BarraSalud
 
 # Metodos
 func _ready() -> void:
-	barra_salud.max_value = hitpoints
-	barra_salud.value = hitpoints
+	barra_salud.set_valores(hitpoints)
 	controlador_estados(estado_actual)
 
 func destruir() -> void:
