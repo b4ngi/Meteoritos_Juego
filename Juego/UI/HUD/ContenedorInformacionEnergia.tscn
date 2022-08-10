@@ -30,6 +30,7 @@ margin_bottom = -13.0
 mouse_filter = 2
 custom_styles/fg = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )
+value = 50.0
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://icono_juego.png" type="Texture" id=1]
 [ext_resource path="res://Juego/UI/HUD/HUD.gd" type="Script" id=2]
@@ -37,6 +37,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0823529, 0.705882, 0.894118, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.470588, 0.454902, 0.454902, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.917647, 0.454902, 0.945098, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.470588, 0.454902, 0.454902, 1 )
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 2 )
@@ -134,6 +146,10 @@ margin_bottom = 1070.85
 [node name="Label" parent="InfoEnergiaLaser" index="1"]
 text = "ENERGIA LASER"
 
+[node name="ProgressBar" parent="InfoEnergiaLaser" index="3"]
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
+
 [node name="InfoEnergiaEscudo" parent="." groups=[
 "contenedor_info",
 ] instance=ExtResource( 4 )]
@@ -148,6 +164,10 @@ margin_top = -25.5
 margin_right = 95.5
 margin_bottom = -4.5
 text = "ENERGIA ESCUDO"
+
+[node name="ProgressBar" parent="InfoEnergiaEscudo" index="3"]
+custom_styles/fg = SubResource( 5 )
+custom_styles/bg = SubResource( 6 )
 
 [node name="Minimapa" parent="." instance=ExtResource( 5 )]
 

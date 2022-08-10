@@ -93,7 +93,6 @@ physics_material_override = SubResource( 1 )
 contacts_reported = 2
 contact_monitor = true
 script = ExtResource( 2 )
-hitpoints = 7.0
 potencia_max = 700.0
 
 [node name="Sprite" parent="." index="0"]
@@ -139,6 +138,12 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeteccion" index="0"]
 shape = SubResource( 5 )
+
+[node name="BarraSalud" parent="." index="8"]
+margin_left = -80.0
+margin_top = -82.0
+margin_right = 80.0
+margin_bottom = -64.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="AreaDisparo" to="." method="_on_AreaDisparo_body_entered"]
