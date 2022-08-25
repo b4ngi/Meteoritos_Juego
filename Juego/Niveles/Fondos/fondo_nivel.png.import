@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fondo_nivel.png-e63856b8b59489633fffa9a33c176c25.stex"
+path="res://.import/fondo_nivel.png-6bfeae35063d248d7f939496cf10d50b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Juego/Niveles/fondo_nivel.png"
-dest_files=[ "res://.import/fondo_nivel.png-e63856b8b59489633fffa9a33c176c25.stex" ]
+source_file="res://Juego/Niveles/Fondos/fondo_nivel.png"
+dest_files=[ "res://.import/fondo_nivel.png-6bfeae35063d248d7f939496cf10d50b.stex" ]
 
 [params]
 
