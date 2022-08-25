@@ -30,5 +30,5 @@ func _on_DetectorPlayer_body_entered(body: Node) -> void:
 	body.desactivar_controles()
 	atraer_player(body)
 
-func _on_Tween_tween_all_completed():
-	pass # Replace with function body.
+func _on_Tween_tween_all_completed() -> void:
+	Eventos.emit_signal("nivel_completado")

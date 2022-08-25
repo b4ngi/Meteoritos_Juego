@@ -13,6 +13,7 @@ export var tiempo_transicion_camara: float = 2.0
 export var tiempo_limite: int = 10
 export var musica_nivel: AudioStream = null
 export var musica_combate: AudioStream = null
+export(String, FILE, "*.tscn") var prox_nivel = ""
 
 ## Atributos onready
 onready var contenedor_proyectiles: Node
@@ -50,6 +51,7 @@ func conectar_seniales() -> void:
 	Eventos.connect("nave_en_sector_peligro", self, "_on_nave_en_sector_peligro")
 	Eventos.connect("base_destruida", self, "_on_base_destruida")
 	Eventos.connect("spawn_orbital", self, "_on_spawn_orbital")
+	Eventos.connect("nivel_completado", self, "_on_nivel_completado")
 
 func crear_contenedores() -> void:
 	contenedor_proyectiles = Node.new()
@@ -152,6 +154,11 @@ func destruir_nivel() -> void:
 		Vector2(300.0, 200.0)
 	)
 	player.destruir()
+
+func _on_nivel_completado() -> void:
+	Eventos.emit_signal("nivel_terminado")
+	yield(get_tree().create_timer(1.0), "timeout")
+	get_tree().change_scene(prox_nivel)
 
 # Conexion seniales externas
 
