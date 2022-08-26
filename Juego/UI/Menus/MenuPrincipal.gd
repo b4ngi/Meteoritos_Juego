@@ -4,7 +4,7 @@ extends Node
 export(String, FILE, "*.tscn") var nivel_inicial = ""
 
 func _ready():
-	OS.set_window_fullscreen(true)
+	#OS.set_window_fullscreen(true)
 	MusicaJuego.play_musica(MusicaJuego.get_lista_musicas().menu_principal)
 
 func _on_BotonJugar_pressed() -> void:

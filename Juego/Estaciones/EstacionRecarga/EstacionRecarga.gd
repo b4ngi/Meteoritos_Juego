@@ -13,6 +13,7 @@ var player_en_zona: bool = false
 ## Atributos onready
 onready var carga_sfx: AudioStreamPlayer = $CargaSFX
 onready var barra_energia: ProgressBar = $BarraEnergia
+onready var tween_sin_energia: Tween = $AreaColision/TweenSinEnergia
 
 ## Metodos
 func _ready() -> void:
@@ -22,7 +23,6 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if not puede_recargar(event):
 		return
-	
 	controlar_energia()
 	
 	if event.is_action("recarga_escudo"):
@@ -39,7 +39,20 @@ func _unhandled_input(event: InputEvent) -> void:
 func controlar_energia() -> void:
 	energia -= radio_energia_entregada
 	if energia <= 0.0:
+		Eventos.emit_signal("ocultar_energia_laser")
+		Eventos.emit_signal("ocultar_energia_escudo")
 		$VacioSFX.play()
+		var tiempo_faltante = $AnimationPlayer.current_animation_position
+		$AnimationPlayer.stop(false)
+	
+		tween_sin_energia.interpolate_property(
+			$AreaColision,
+			"rotation_degrees",
+			$AreaColision.rotation_degrees,
+			360,
+			5 - tiempo_faltante
+		)
+		tween_sin_energia.start()
 	
 	barra_energia.value = energia
 
@@ -66,3 +79,11 @@ func _on_AreaRecarga_body_exited(body: Node) -> void:
 	if body is Player:
 		player_en_zona = false
 		Eventos.emit_signal("detecto_zona_recarga", false)
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "transicion_sin_energia":
+		$AnimationPlayer.play("sin_energia")
+
+func _on_TweenSinEnergia_tween_completed(object, key):
+	$AnimationPlayer.play("transicion_sin_energia")
