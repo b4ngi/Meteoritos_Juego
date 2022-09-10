@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Juego/Naves/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Juego/Niveles/Nivel.gd" type="Script" id=2]
 [ext_resource path="res://default_env.tres" type="Environment" id=3]
 [ext_resource path="res://Juego/Enemigos/EnemigoInterceptor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Juego/Explosiones/Explosion.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Juego/UI/Menus/MenuPausa.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Juego/Meteoritos/Meteorito.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Juego/Explosiones/ExplosionMeteorito.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Juego/Meteoritos/SectorMeteoritos.tscn" type="PackedScene" id=9]
@@ -28,6 +29,9 @@ musica_nivel = ExtResource( 16 )
 musica_combate = ExtResource( 17 )
 
 [node name="HUD" parent="." instance=ExtResource( 15 )]
+
+[node name="MenuPausa" parent="HUD" instance=ExtResource( 6 )]
+visible = false
 
 [node name="TriggersLluviaMeteoritos" type="Node" parent="."]
 
@@ -60,3 +64,7 @@ position = Vector2( 125.475, 130.814 )
 [connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]
 [connection signal="timeout" from="RestartTimer" to="." method="_on_RestartTimer_timeout"]
 [connection signal="timeout" from="ActualizadorTimer" to="." method="_on_ActualizadorTimer_timeout"]
+
+[editable path="Player"]
+[editable path="Player/Canion"]
+[editable path="Player/CamaraPlayer"]

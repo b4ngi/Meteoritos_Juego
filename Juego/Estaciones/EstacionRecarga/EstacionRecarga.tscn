@@ -52,7 +52,7 @@ tracks/2/keys = {
 "values": [ Vector2( 33.1086, 33.1086 ), Vector2( 25.109, 25.109 ), Vector2( 33.1086, 33.1086 ), Vector2( 25.109, 25.109 ), Vector2( 33.1086, 33.1086 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=3]
 resource_name = "default"
 length = 0.001
 tracks/0/type = "value"
@@ -92,7 +92,7 @@ tracks/2/keys = {
 "values": [ Color( 0.223529, 0.960784, 0.603922, 0.105882 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=4]
 resource_name = "sin_energia"
 length = 10.0
 loop = true
@@ -133,8 +133,7 @@ tracks/2/keys = {
 "values": [ Color( 0.266667, 0.337255, 0.466667, 0.945098 ), Color( 0.266667, 0.337255, 0.466667, 0.945098 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "transicion_sin_energia"
+[sub_resource type="Animation" id=5]
 length = 7.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AreaColision:rotation_degrees")
@@ -185,13 +184,13 @@ tracks/3/keys = {
 "values": [ Vector2( 33.1086, 33.1086 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.411765, 0.313726, 0.941176, 1 )
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0.572549, 0.65098, 0.721569, 1 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=8]
 size = 20
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -220,9 +219,9 @@ shape = SubResource( 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "activado"
 anims/activado = SubResource( 2 )
-anims/default = SubResource( 9 )
-anims/sin_energia = SubResource( 8 )
-anims/transicion_sin_energia = SubResource( 4 )
+anims/default = SubResource( 3 )
+anims/sin_energia = SubResource( 4 )
+anims/transicion_sin_energia = SubResource( 5 )
 
 [node name="VacioSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
@@ -236,9 +235,9 @@ margin_left = -85.0
 margin_top = -200.0
 margin_right = 85.0
 margin_bottom = -175.0
-custom_styles/fg = SubResource( 5 )
-custom_styles/bg = SubResource( 6 )
-custom_fonts/font = SubResource( 7 )
+custom_styles/fg = SubResource( 6 )
+custom_styles/bg = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 value = 50.0
 __meta__ = {
 "_edit_use_anchors_": false
