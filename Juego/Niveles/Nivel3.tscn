@@ -1,6 +1,26 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Juego/Niveles/NivelBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Juego/Estaciones/BaseEnemiga/BaseEnemiga.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Juego/Estaciones/EstacionRecarga/EstacionRecarga.tscn" type="PackedScene" id=4]
 
 [node name="Nivel3" instance=ExtResource( 1 )]
+tiempo_limite = 120
 prox_nivel = "res://Juego/Niveles/Nivel4.tscn"
+
+[node name="EstacionRecarga" parent="ContenedorEstaciones" index="0" instance=ExtResource( 4 )]
+position = Vector2( -3659.58, 591.991 )
+
+[node name="BaseEnemiga" parent="ContenedorBasesEnemigas" index="0" instance=ExtResource( 3 )]
+position = Vector2( -2950.33, -2580.49 )
+numero_orbitales = 6
+intervalo_spawn = 1.2
+
+[node name="BaseEnemiga2" parent="ContenedorBasesEnemigas" index="1" instance=ExtResource( 3 )]
+position = Vector2( -3205.96, 4671.4 )
+numero_orbitales = 6
+intervalo_spawn = 1.2
+
+[editable path="Player"]
+[editable path="Player/Canion"]
+[editable path="Player/CamaraPlayer"]

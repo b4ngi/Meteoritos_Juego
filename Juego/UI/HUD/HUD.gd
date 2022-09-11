@@ -10,6 +10,7 @@ onready var info_escudo: ContenedorInformacionEnergia = $InfoEnergiaEscudo
 
 # Metodos
 func _ready() -> void:
+	$AnimationPlayer.play("ocultar_info_inicial")
 	conectar_seniales()
 
 # Metodos custom
