@@ -1,31 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://icono_juego.png" type="Texture" id=1]
 [ext_resource path="res://Juego/UI/HUD/HUD.gd" type="Script" id=2]
 [ext_resource path="res://Juego/UI/HUD/ContenedorInformacion.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Juego/UI/HUD/ContenedorInformacionEnergia.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Juego/UI/Minimapa/Minimapa.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Juego/UI/HUD/fuente_contenedor.ttf" type="DynamicFontData" id=6]
-
-[sub_resource type="DynamicFont" id=7]
-size = 30
-font_data = ExtResource( 6 )
-
-[sub_resource type="Animation" id=8]
-resource_name = "ocultar_info_inicial"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("InfoNivelInicial:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1.2, 2, 3, 4 ),
-"transitions": PoolRealArray( 1, 1.03526, 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.392157 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.392157 ), Color( 1, 1, 1, 0 ) ]
-}
 
 [sub_resource type="Animation" id=1]
 resource_name = "default"
@@ -73,25 +52,6 @@ bg_color = Color( 0.470588, 0.454902, 0.454902, 1 )
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 2 )
-
-[node name="InfoNivelInicial" type="Label" parent="."]
-modulate = Color( 1, 1, 1, 0.392157 )
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -378.0
-margin_top = 32.0
-margin_right = 378.0
-margin_bottom = 113.0
-custom_fonts/font = SubResource( 7 )
-text = "Destruye todas las bases enemigas para pasar al siguiente nivel"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/ocultar_info_inicial = SubResource( 8 )
 
 [node name="FadeCanvas" type="CanvasLayer" parent="."]
 

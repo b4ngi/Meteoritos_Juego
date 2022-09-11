@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Juego/Niveles/NivelBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Juego/UI/HUD/fuente_contenedor.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Juego/Estaciones/BaseEnemiga/BaseEnemiga.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Juego/Estaciones/EstacionRecarga/EstacionRecarga.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "tutorial"
+length = 60.0
+step = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4, 8, 12, 16, 24, 28, 36, 44, 52 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "Tu mision es acabar con todas las bases enemigas", "Tienes un tiempo limite para lograrlo", "Utiliza el minipama para dirigirte hacia tus objetivos
+(tecla TAB para activarlo)", "MUEVETE CON W, A, S, D", "Para disparar utiliza el click izquierdo.
+
+Para el laser utiliza el click derecho
+
+Para el escudo utiliza el click de la rueda", "En tu mision puedes encontrarte con estaciones de recarga
+(color verde en el minimapa)", "Para recargar el laser manten presionada la tecla E
+Para recargar el escudo manten presionada la tecla R", "Dirigete hacia la base enemiga para destruirla
+(Color rojo en el mapa)", "Ten cuidado que en tu recorrido puedes toparte con naves enemigas y lluvias de meteoritos", "Al destruir todas las bases enemigas aparecerá un portal para pasar al siguiente nivel" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 4, 6, 8, 10, 12, 14, 16, 20, 24, 26, 28, 32, 36, 40, 44, 48, 52, 56, 60 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 2 )
+
+[node name="NivelTutorial" instance=ExtResource( 1 )]
+tiempo_limite = 300
+prox_nivel = "res://Juego/UI/Menus/MenuPrincipal.tscn"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD" index="8"]
+autoplay = "tutorial"
+anims/tutorial = SubResource( 1 )
+
+[node name="Label" type="Label" parent="HUD" index="9"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -593.551
+margin_top = -420.836
+margin_right = 608.449
+margin_bottom = -183.836
+custom_fonts/font = SubResource( 2 )
+text = "Tu mision es acabar con todas las bases enemigas"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EstacionRecarga" parent="ContenedorEstaciones" index="0" instance=ExtResource( 4 )]
+position = Vector2( 6950.08, 542.445 )
+
+[node name="BaseEnemiga" parent="ContenedorBasesEnemigas" index="0" instance=ExtResource( 3 )]
+position = Vector2( 6997.57, 4909.66 )
+hitpoints = 10.0
+numero_orbitales = 2
+intervalo_spawn = 4.0
+
+[node name="Player" parent="." index="11"]
+position = Vector2( 961.475, 546.814 )
