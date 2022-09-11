@@ -14,6 +14,7 @@ var esta_destruido: bool = false
 var pos_spawn_original: Vector2
 var vel_spawn_original: Vector2
 
+## Atributos onready
 onready var impacto_sfx: AudioStreamPlayer2D = $ImpactoSFX
 onready var animacion_impacto: AnimationPlayer = $AnimationPlayer
 

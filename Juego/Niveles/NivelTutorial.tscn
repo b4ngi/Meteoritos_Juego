@@ -83,3 +83,7 @@ intervalo_spawn = 4.0
 
 [node name="Player" parent="." index="11"]
 position = Vector2( 961.475, 546.814 )
+
+[editable path="Player"]
+[editable path="Player/Canion"]
+[editable path="Player/CamaraPlayer"]

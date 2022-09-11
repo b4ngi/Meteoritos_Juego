@@ -6,7 +6,7 @@ extends Node2D
 func _ready() -> void:
 	Eventos.emit_signal("minimapa_objeto_creado")
 
-# Metodos custom
+## Metodos custom
 func atraer_player(body: Node) -> void:
 	$Tween.interpolate_property(
 		body,
@@ -19,7 +19,7 @@ func atraer_player(body: Node) -> void:
 	)
 	$Tween.start()
 
-# Seniales internas
+## Seniales internas
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "spawn":
 		$AnimationPlayer.play("activada")

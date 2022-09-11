@@ -164,7 +164,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Meteoritos"
+config/name="BenetucciIgnacio_Meteoritos"
 run/main_scene="res://Juego/UI/Menus/MenuPrincipal.tscn"
 config/icon="res://icono_juego.png"
 

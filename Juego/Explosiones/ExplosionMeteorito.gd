@@ -13,7 +13,7 @@ extends Node2D
 #	
 #	return lista_animacion[indice_anim_aleatoria]
 
-## Si se agregan mas animaciones para las explosiones de los meteoritos
+## RECORDATORIO: Descomentar cuando agregue mas animaciones para las explosiones de los meteoritos
 
 func _on_AnimationPlayer_animation_finished(_anim_name: String) -> void:
 	queue_free()

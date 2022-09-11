@@ -6,6 +6,7 @@ extends Camera2D
 var zoom_original: Vector2
 var puede_hacer_zoom: bool = true setget set_puede_hacer_zoom
 
+## Atributos onready
 onready var tween_zoom: Tween = $TweenZoom
 
 # Setters y Getters

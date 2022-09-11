@@ -58,9 +58,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("minimapa"):
 		set_esta_visible(not esta_visible)
 
-func ocultar() -> void:
-	set_esta_visible(false)
-
 ## Metodos custom
 func conectar_seniales() -> void:
 	Eventos.connect("nivel_iniciado", self, "_on_nivel_iniciado")
@@ -114,6 +111,9 @@ func modificar_posicion_iconos() -> void:
 func _on_nave_destruida(nave: NaveBase, _posicion, _explosiones) -> void:
 	if nave is Player:
 		player = null
+
+func ocultar() -> void:
+	set_esta_visible(false)
 
 ## Seniales internas
 func _on_TimerVisibilidad_timeout() -> void:

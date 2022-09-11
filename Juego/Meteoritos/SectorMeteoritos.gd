@@ -2,9 +2,11 @@
 class_name SectorMeteoritos
 extends Node2D
 
+## Atributos export
 export var cantidad_meteoritos: int = 10
 export var intervalo_spawn: float = 1.2
 
+## Atributos
 var spawners: Array
 
 # Constructor

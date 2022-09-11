@@ -26,6 +26,20 @@ func set_puede_disparar(duenio_puede: bool) -> void:
 	puede_disparar = duenio_puede
 
 ## Metodos
+func _ready() -> void:
+	almacenar_puntos_disparo()
+	timer_enfriamiento.wait_time = cadencia_disparo
+
+func _process(_delta: float) -> void:
+	if esta_disparando and esta_enfriado and puede_disparar:
+		disparar()
+
+## Metodos custom
+func almacenar_puntos_disparo() -> void:
+	for nodo in get_children():
+		if nodo is Position2D:
+			puntos_disparo.append(nodo)
+
 func disparar() -> void:
 	esta_enfriado = false
 	disparo_sfx.play()
@@ -40,19 +54,6 @@ func disparar() -> void:
 			)
 		Eventos.emit_signal("disparo", new_proyectil)
 
+## Seniales internas
 func _on_TimerEnfriamiento_timeout() -> void:
 	esta_enfriado = true
-
-func _ready() -> void:
-	almacenar_puntos_disparo()
-	timer_enfriamiento.wait_time = cadencia_disparo
-
-func _process(_delta: float) -> void:
-	if esta_disparando and esta_enfriado and puede_disparar:
-		disparar()
-
-## Metodos custom
-func almacenar_puntos_disparo() -> void:
-	for nodo in get_children():
-		if nodo is Position2D:
-			puntos_disparo.append(nodo)

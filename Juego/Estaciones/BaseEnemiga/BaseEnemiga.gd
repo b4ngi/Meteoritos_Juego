@@ -2,12 +2,14 @@
 class_name BaseEnemiga
 extends Node2D
 
+## Atributos export
 export var hitpoints: float = 30.0
 export var orbital: PackedScene = null
 export(Array, PackedScene) var rutas
 export var numero_orbitales: int = 9
 export var intervalo_spawn: float = 0.8
 
+## Atributos onready
 onready var impacto_sfx: AudioStreamPlayer2D = $ImpactoSFX
 onready var timer_spawner: Timer = $TimerSpawnEnemigos
 onready var barra_salud: ProgressBar = $Sprites/BarraSalud

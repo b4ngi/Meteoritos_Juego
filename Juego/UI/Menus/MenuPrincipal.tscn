@@ -7,11 +7,11 @@
 size = 80
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 80
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 80
 font_data = ExtResource( 1 )
 
@@ -57,7 +57,7 @@ margin_right = 692.0
 margin_bottom = 323.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "TUTORIAL"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -74,7 +74,7 @@ margin_right = 692.0
 margin_bottom = 495.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "SALIR"
 __meta__ = {
 "_edit_use_anchors_": false

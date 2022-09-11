@@ -2,11 +2,11 @@
 class_name Proyectil
 extends Area2D
 
-# Atributos
+## Atributos
 var velocidad: Vector2 = Vector2.ZERO
 var danio: float
 
-# Metodos
+## Metodos
 func crear(pos: Vector2, dir: float, vel: float, danio_p: int) -> void:
 	position = pos
 	rotation = dir
@@ -16,16 +16,13 @@ func crear(pos: Vector2, dir: float, vel: float, danio_p: int) -> void:
 func _physics_process(delta: float) -> void:
 	position += velocidad * delta
 
-func _ready():
-	pass # Replace with function body.
-
-# Metodos custom
+## Metodos custom
 func daniar(otro_cuerpo: CollisionObject2D) -> void:
 	if otro_cuerpo.has_method("recibir_danio"):
 		otro_cuerpo.recibir_danio(danio)
 	queue_free()
 
-# Seniales
+## Seniales internas
 func _on_VisibilityNotifier2D_screen_exited() -> void:
 	queue_free()
 

@@ -2,6 +2,7 @@
 class_name SectorDePeligro
 extends Area2D
 
+## Atributos export
 export(String, "vacio", "Meteorito", "Enemigo") var tipo_peligro
 export var numero_peligros: int = 10
 
@@ -19,6 +20,3 @@ func enviar_senial() -> void:
 		numero_peligros
 	)
 	queue_free()
-
-func _ready():
-	pass
