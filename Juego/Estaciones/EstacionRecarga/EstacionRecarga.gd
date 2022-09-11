@@ -41,6 +41,7 @@ func controlar_energia() -> void:
 	if energia <= 0.0:
 		Eventos.emit_signal("ocultar_energia_laser")
 		Eventos.emit_signal("ocultar_energia_escudo")
+		remove_from_group("minimapa")
 		Eventos.emit_signal("minimapa_objeto_destruido", self)
 		$VacioSFX.play()
 		barra_energia.visible = false

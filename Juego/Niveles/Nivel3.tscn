@@ -1,12 +1,27 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Juego/Niveles/NivelBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Juego/Peligros/SectorDePeligro.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Juego/Estaciones/BaseEnemiga/BaseEnemiga.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Juego/Estaciones/EstacionRecarga/EstacionRecarga.tscn" type="PackedScene" id=4]
 
 [node name="Nivel3" instance=ExtResource( 1 )]
 tiempo_limite = 120
 prox_nivel = "res://Juego/Niveles/Nivel4.tscn"
+
+[node name="SectorDePeligro" parent="TriggersInterceptores" index="0" instance=ExtResource( 2 )]
+position = Vector2( -1008.45, -1408.02 )
+rotation = -0.523599
+scale = Vector2( 8, 1 )
+tipo_peligro = "Enemigo"
+numero_peligros = 1
+
+[node name="SectorDePeligro2" parent="TriggersInterceptores" index="1" instance=ExtResource( 2 )]
+position = Vector2( -1198.72, 2797.01 )
+rotation = 0.523599
+scale = Vector2( 8, 1 )
+tipo_peligro = "Enemigo"
+numero_peligros = 1
 
 [node name="EstacionRecarga" parent="ContenedorEstaciones" index="0" instance=ExtResource( 4 )]
 position = Vector2( -3659.58, 591.991 )

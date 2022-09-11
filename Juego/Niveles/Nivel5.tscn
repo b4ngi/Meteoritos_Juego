@@ -9,11 +9,25 @@
 prox_nivel = "res://Juego/UI/Menus/MenuVictoria.tscn"
 
 [node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" index="0" instance=ExtResource( 3 )]
-position = Vector2( 4923.25, -166.122 )
+position = Vector2( 5508.24, -743.677 )
 rotation = -0.523599
 scale = Vector2( 4, 1 )
 tipo_peligro = "Meteorito"
 numero_peligros = 8
+
+[node name="SectorDePeligro3" parent="TriggersLluviaMeteoritos" index="1" instance=ExtResource( 3 )]
+position = Vector2( 3700.24, 328.323 )
+rotation = -0.523599
+scale = Vector2( 4, 1 )
+tipo_peligro = "Meteorito"
+numero_peligros = 8
+
+[node name="SectorDePeligro2" parent="TriggersLluviaMeteoritos" index="2" instance=ExtResource( 3 )]
+position = Vector2( 2164.24, 2472.32 )
+rotation = -0.523599
+scale = Vector2( 8, 1 )
+tipo_peligro = "Enemigo"
+numero_peligros = 2
 
 [node name="EstacionRecarga" parent="ContenedorEstaciones" index="0" instance=ExtResource( 4 )]
 position = Vector2( 6237.12, 1691.42 )

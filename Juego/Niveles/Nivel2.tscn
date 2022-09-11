@@ -9,7 +9,7 @@ tiempo_limite = 120
 prox_nivel = "res://Juego/Niveles/Nivel3.tscn"
 
 [node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" index="0" instance=ExtResource( 2 )]
-position = Vector2( 462.68, 809.368 )
+position = Vector2( 329.489, 809.368 )
 scale = Vector2( 4, 1 )
 tipo_peligro = "Meteorito"
 numero_peligros = 5

@@ -6,22 +6,22 @@
 [ext_resource path="res://Juego/Estaciones/EstacionRecarga/EstacionRecarga.tscn" type="PackedScene" id=4]
 
 [node name="Nivel4" instance=ExtResource( 1 )]
-tiempo_limite = 280
+tiempo_limite = 180
 prox_nivel = "res://Juego/Niveles/Nivel5.tscn"
 
 [node name="SectorDePeligro" parent="TriggersInterceptores" index="0" instance=ExtResource( 3 )]
-position = Vector2( 2221.85, -523.408 )
+position = Vector2( 2121.06, -624.202 )
 rotation = 0.523599
 scale = Vector2( 10, 1 )
 tipo_peligro = "Enemigo"
-numero_peligros = 1
+numero_peligros = 2
 
 [node name="SectorDePeligro2" parent="TriggersInterceptores" index="1" instance=ExtResource( 3 )]
-position = Vector2( -1427.74, 2206.61 )
+position = Vector2( -1830.91, 2005.02 )
 rotation = 0.523599
 scale = Vector2( 10, 1 )
 tipo_peligro = "Enemigo"
-numero_peligros = 1
+numero_peligros = 2
 
 [node name="EstacionRecarga" parent="ContenedorEstaciones" index="0" instance=ExtResource( 4 )]
 position = Vector2( 1001.11, 843.422 )
